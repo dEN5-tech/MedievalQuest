@@ -1,0 +1,8 @@
+E:\projects\godot\medival_quest\MedievalQuestGenerator\bin\Debug\netstandard2.0\MedievalQuestGenerator.deps.json
+E:\projects\godot\medival_quest\MedievalQuestGenerator\bin\Debug\netstandard2.0\MedievalQuestGenerator.dll
+E:\projects\godot\medival_quest\MedievalQuestGenerator\bin\Debug\netstandard2.0\MedievalQuestGenerator.pdb
+E:\projects\godot\medival_quest\MedievalQuestGenerator\obj\Debug\netstandard2.0\MedievalQuestGenerator.csproj.AssemblyReference.cache
+E:\projects\godot\medival_quest\MedievalQuestGenerator\obj\Debug\netstandard2.0\MedievalQuestGenerator.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\godot\medival_quest\MedievalQuestGenerator\obj\Debug\netstandard2.0\MedievalQuestGenerator.csproj.CoreCompileInputs.cache
+E:\projects\godot\medival_quest\MedievalQuestGenerator\obj\Debug\netstandard2.0\MedievalQuestGenerator.dll
+E:\projects\godot\medival_quest\MedievalQuestGenerator\obj\Debug\netstandard2.0\MedievalQuestGenerator.pdb

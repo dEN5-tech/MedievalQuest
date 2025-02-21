@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsxqx2ei1lg6s"]
+
+[ext_resource type="Script" path="res://scripts/SoulItem.cs" id="1_soul"]
+[ext_resource type="Texture2D" uid="uid://tvmq3wrg7njm" path="res://Texture/TX Village Props.png" id="2_props"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soul"]
+atlas = ExtResource("2_props")
+region = Rect2(202, 585, 11, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_soul"]
+radius = 8.0
+
+[node name="SoulItem" type="Area2D"]
+collision_layer = 256
+collision_mask = 6
+script = ExtResource("1_soul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.4, 0.6, 1, 0.8)
+scale = Vector2(0.75, 0.75)
+texture = SubResource("AtlasTexture_soul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_soul")

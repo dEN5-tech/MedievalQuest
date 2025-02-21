@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4r8g6cp5y3gx"]
+
+[ext_resource type="Texture2D" uid="uid://c2j8p4q6y5n3x" path="res://resources/light_texture.tres" id="1_light"]
+
+[node name="Lighting" type="Node2D"]
+
+[node name="AmbientLight" type="DirectionalLight2D" parent="."]
+color = Color(0.85, 0.85, 0.9, 1)
+energy = 0.6
+blend_mode = 1
+
+[node name="GlobalLight" type="DirectionalLight2D" parent="."]
+color = Color(1, 0.95, 0.85, 1)
+energy = 0.4
+blend_mode = 0
+
+[node name="PointLights" type="Node2D" parent="."]
+
+[node name="TorchLight1" type="PointLight2D" parent="PointLights"]
+position = Vector2(200, 300)
+color = Color(1, 0.8, 0.6, 1)
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+texture = ExtResource("1_light")
+texture_scale = 2.0
+
+[node name="TorchLight2" type="PointLight2D" parent="PointLights"]
+position = Vector2(600, 300)
+color = Color(1, 0.8, 0.6, 1)
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+texture = ExtResource("1_light")
+texture_scale = 2.0 

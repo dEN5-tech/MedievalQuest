@@ -81,8 +81,6 @@ namespace MedivalQuest.DI.Services
                 
                 // Defer all physics-related changes
                 _soulItem.SetDeferred("process_mode", (int)Node.ProcessModeEnum.Disabled);
-                _soulItem.SetDeferred("collision_layer", 0);
-                _soulItem.SetDeferred("collision_mask", 0);
                 _soulItem.SetDeferred("monitoring", false);
                 _soulItem.SetDeferred("monitorable", false);
                 

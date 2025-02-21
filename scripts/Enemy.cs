@@ -31,6 +31,9 @@ public partial class Enemy : BaseEnemy
 	public float AttackRange { get; set; } = 50f;
 
 	[Export]
+	public int ContactDamage { get; set; } = 5;
+
+	[Export]
 	public NodePath TargetPath { get; set; }
 
 	[Export]
@@ -70,23 +73,15 @@ public partial class Enemy : BaseEnemy
 
 	private void SetupCollisions()
 	{
-		// Set up collision detection with proper layer masks
-		SetDeferred("collision_layer", CollisionLayers.ToBitmask(CollisionLayers.Enemy));
-		SetDeferred("collision_mask", CollisionLayers.ToBitmask(CollisionLayers.World, CollisionLayers.Player));
-
 		_hurtbox = GetNode<Area2D>("Hurtbox");
 		if (_hurtbox != null)
 		{
-			_hurtbox.SetDeferred("collision_layer", CollisionLayers.ToBitmask(CollisionLayers.Enemy));
-			_hurtbox.SetDeferred("collision_mask", CollisionLayers.ToBitmask(CollisionLayers.PlayerHitbox));
 			_hurtbox.AreaEntered += OnAreaEntered;
 		}
 
 		_attackArea = GetNode<Area2D>("AttackArea");
 		if (_attackArea != null)
 		{
-			_attackArea.SetDeferred("collision_layer", CollisionLayers.ToBitmask(CollisionLayers.EnemyHitbox));
-			_attackArea.SetDeferred("collision_mask", CollisionLayers.ToBitmask(CollisionLayers.Player));
 			DisableAttackArea();
 			_attackArea.AreaEntered += OnAttackAreaEntered;
 		}
@@ -282,5 +277,21 @@ public partial class Enemy : BaseEnemy
 		};
 
 		parent.CallDeferred(Node.MethodName.AddChild, soul);
+	}
+
+	public void TakeDamage(int damage, Vector2 knockbackDirection)
+	{
+		if (IsDead) return;
+		HealthService.TakeDamage(this, damage);
+		StateService.TakeHit();
+		
+		// Apply knockback
+		Vector2 knockbackForce = knockbackDirection * 300; // Adjust force as needed
+		Velocity = knockbackForce;
+	}
+
+	public override void TakeDamage(int damage)
+	{
+		TakeDamage(damage, Vector2.Zero);
 	}
 } 

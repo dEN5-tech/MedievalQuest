@@ -9,6 +9,7 @@ namespace MedivalQuest.DI.Services
 	{
 		private Node _guiRoot;
 		private ProgressBar _playerHealthBar;
+		private Label _healthLabel;
 		private Label _soulCountLabel;
 		private Control _gameOverScreen;
 		private Control _victoryScreen;
@@ -18,6 +19,7 @@ namespace MedivalQuest.DI.Services
 		{
 			_guiRoot = guiRoot;
 			_playerHealthBar = _guiRoot.GetNode<ProgressBar>("PlayerHealthBar");
+			_healthLabel = _playerHealthBar?.GetNode<Label>("Label");
 			_soulCountLabel = _guiRoot.GetNode<Label>("SoulCounter/Value");
 			_gameOverScreen = _guiRoot.GetNode<Control>("GameOverScreen");
 			_victoryScreen = _guiRoot.GetNode<Control>("VictoryScreen");
@@ -69,6 +71,12 @@ namespace MedivalQuest.DI.Services
 			{
 				_playerHealthBar.MaxValue = maxHealth;
 				_playerHealthBar.Value = currentHealth;
+
+				// Update health label to show current/max health
+				if (_healthLabel != null)
+				{
+					_healthLabel.Text = $"{currentHealth}/{maxHealth}";
+				}
 			}
 		}
 

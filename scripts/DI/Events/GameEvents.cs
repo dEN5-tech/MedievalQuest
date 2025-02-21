@@ -33,6 +33,11 @@ namespace MedivalQuest.DI.Events
         public static event AttackEndedHandler OnAttackEnded;
         public static void RaiseAttackEnded(IGameEntity entity) => OnAttackEnded?.Invoke(entity);
 
+        // Hit confirmation event
+        public delegate void HitConfirmedHandler();
+        public static event HitConfirmedHandler OnHitConfirmed;
+        public static void RaiseHitConfirmed() => OnHitConfirmed?.Invoke();
+
         // Soul events
         public delegate void SoulCollectedHandler(int totalSouls);
         public static event SoulCollectedHandler OnSoulCollected;
